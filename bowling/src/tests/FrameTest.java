@@ -14,8 +14,8 @@ public class FrameTest {
 
 	@Before
 	public void setUp() throws Exception {
-		strikeFrame = new Frame(true, false, 10, 0);
-		spareFrame = new Frame(false, true, 3, 7);
+		strikeFrame = new Frame(10, 0);
+		spareFrame = new Frame(3, 7);
 	}
 
 	@After
@@ -28,18 +28,6 @@ public class FrameTest {
 		Frame f1 = null;
 		assertNull("Frame was not null as expected", f1);
 		assertNotNull("Frame was not instantiated as expected", strikeFrame);
-	}
-
-	@Test
-	public void testIsOnFirstBall() {
-		assertTrue("Frame is not on first roll", strikeFrame.isOnFirstBall());
-		assertFalse("Frame is on first roll", spareFrame.isOnFirstBall());
-	}
-	
-	@Test
-	public void testIsOnSecondBall() {
-		assertFalse("Frame is on second roll", strikeFrame.isOnSecondBall());
-		assertTrue("Frame is not on second roll", spareFrame.isOnSecondBall());
 	}
 	
 	@Test
