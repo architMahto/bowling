@@ -7,6 +7,7 @@ public class Player {
 	
 	public String name;
 	public List<Frame> frames = new ArrayList<Frame>();
+	public List<Integer> scores = new ArrayList<Integer>();
 	public int score;
 
 	public Player(String name) {
@@ -23,11 +24,37 @@ public class Player {
 		}
 	}
 	
-//	public void updateScores() {
-//		if (frames.size() > 2) {
-//			
-//		}
-//	}
+	public int updateScores() {
+		
+		for (int i = 0; i < frames.size(); i++) {
+			score += calculateFrameScore(i);
+		}
+		
+		return this.score;
+	}
+	
+	public int calculateFrameScore(int index) {
+		Frame currentFrame = frames.get(index);
+		
+		int currentFrameScore = currentFrame.score();
+		
+		if (currentFrame.isStrike() && index < (frames.size() - 1)) {
+
+			if (frames.get(index+1).isStrike()) {
+				currentFrameScore += frames.get(index+1).score();
+				
+				if ((index + 2) < frames.size()) {
+					currentFrameScore += frames.get(index+2).getFirstBall();
+				}
+			} else {
+				currentFrameScore += (frames.get(index+1).getFirstBall() + frames.get(index+1).getSecondBall());
+			}
+		} else if (currentFrame.isSpare() && index < (frames.size() - 1)) {
+			currentFrameScore += frames.get(index+1).getFirstBall();
+		}
+		
+		return currentFrameScore;
+	}
 	
 	public String getName() {
 		return this.name;
