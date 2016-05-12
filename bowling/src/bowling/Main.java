@@ -22,7 +22,7 @@ public class Main {
 		do {
 			System.out.println("Enter number of players (Max 5): ");
 			numPlayers = scanner.nextInt();
-		} while (numPlayers > 5);
+		} while (numPlayers > 5 && !(numPlayers == (int)numPlayers));
 		
 		System.out.println();
 		System.out.println("Enter player names: ");
@@ -32,12 +32,18 @@ public class Main {
 			players.add(new Player(name));
 		}
 		
-		scanner.close();
+//		scanner.close();
 		System.out.println("");
 		
 		for (Player p : players) {
 			System.out.print(p.name + " ");;
 		}
+		System.out.println();
+		
+		Game game = new Game(players);
+		game.play();
+		game.printScores();
+		scanner.close();
 	}
 
 }
