@@ -7,7 +7,6 @@ public class Player {
 	
 	public String name;
 	public List<Frame> frames = new ArrayList<Frame>();
-	public List<Integer> scores = new ArrayList<Integer>();
 	public int score;
 
 	public Player(String name) {
