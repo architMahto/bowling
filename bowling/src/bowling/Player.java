@@ -16,12 +16,22 @@ public class Player {
 		this.score = 0;
 	}
 	
-	public void roll(int firstRoll, int secondRoll) {
-		if (firstRoll == 10) {
-			frames.add(new Frame(firstRoll, 0));
+	public void roll(int firstRoll, int secondRoll, int thirdRoll, int currentFrame) {
+		if (currentFrame != 9) {
+			if (firstRoll == 10) {
+				frames.add(new Frame(firstRoll, 0, 0, currentFrame));
+			} else {
+				frames.add(new Frame(firstRoll, secondRoll, 0, currentFrame));
+			}
 		} else {
-			frames.add(new Frame(firstRoll, secondRoll));
+			if (firstRoll == 10) {
+				frames.add(new Frame(firstRoll, secondRoll, thirdRoll, currentFrame));
+			} else {
+				frames.add(new Frame(firstRoll, secondRoll, 0, currentFrame));
+			}
 		}
+		
+		
 	}
 	
 	public int updateScores() {

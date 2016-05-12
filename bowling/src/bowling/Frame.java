@@ -4,12 +4,16 @@ public class Frame {
 	
 	private int firstBall;
 	private int secondBall;
+	private int thirdBall;
+	private int currentFrame;
 	private int score;
 
-	public Frame(int firstBall, int secondBall) {
+	public Frame(int firstBall, int secondBall, int thirdBall, int currentFrame) {
 		// TODO Auto-generated constructor stub
 		this.firstBall = firstBall;
 		this.secondBall = secondBall;
+		this.thirdBall = thirdBall;
+		this.currentFrame = currentFrame;
 		this.score = 0;
 	}
 
@@ -19,6 +23,14 @@ public class Frame {
 
 	public int getSecondBall() {
 		return this.secondBall;
+	}
+
+	public int getThirdBall() {
+		return this.thirdBall;
+	}
+	
+	public boolean isLastFrame() {
+		return this.currentFrame == 9;
 	}
 	
 	// check if frame is a strike	
@@ -35,8 +47,10 @@ public class Frame {
 	public int score() {
 		if (isStrike() || isSpare()) {
 			this.score = 10;
+		} else if (isLastFrame()) {
+			this.score = this.firstBall + this.secondBall + this.thirdBall;
 		} else {
-			this.score = this.firstBall + this.secondBall;
+			this.score = this.firstBall + this.secondBall ;
 		}
 		return this.score;
 	}

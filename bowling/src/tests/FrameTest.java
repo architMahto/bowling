@@ -14,8 +14,8 @@ public class FrameTest {
 
 	@Before
 	public void setUp() throws Exception {
-		strikeFrame = new Frame(10, 0);
-		spareFrame = new Frame(3, 7);
+		strikeFrame = new Frame(10, 0, 0, 0);
+		spareFrame = new Frame(3, 7, 0, 0);
 	}
 
 	@After
@@ -32,14 +32,14 @@ public class FrameTest {
 	
 	@Test
 	public void testGetFirstBall() {
-		assertEquals("Frame is not a strike as expected", strikeFrame.getFirstBall(), 10);
-		assertEquals("Frame is not a spare as expected", spareFrame.getFirstBall(), 3);
+		assertEquals("Frame is not a strike as expected", 10, strikeFrame.getFirstBall());
+		assertEquals("Frame is not a spare as expected", 3, spareFrame.getFirstBall());
 	}
 	
 	@Test
 	public void testGetSecondBall() {
-		assertEquals("Frame is not a strike as expected", strikeFrame.getSecondBall(), 0);
-		assertEquals("Frame is not a spare as expected", spareFrame.getSecondBall(), 7);
+		assertEquals("Frame is not a strike as expected", 0, strikeFrame.getSecondBall());
+		assertEquals("Frame is not a spare as expected", 7, spareFrame.getSecondBall());
 	}
 	
 	@Test
