@@ -19,6 +19,7 @@ public class PlayerTest {
 
 	@After
 	public void tearDown() throws Exception {
+		player = null;
 	}
 
 	@Test

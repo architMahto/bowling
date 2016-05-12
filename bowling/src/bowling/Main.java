@@ -14,6 +14,11 @@ public class Main {
 		String name;
 		int numPlayers;
 		
+		System.out.println("#################");
+		System.out.println("#    Bowling    #");
+		System.out.println("#################");
+		System.out.println();
+		
 		do {
 			System.out.println("Enter number of players (Max 5): ");
 			numPlayers = scanner.nextInt();
