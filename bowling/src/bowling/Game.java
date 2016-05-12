@@ -20,7 +20,7 @@ public class Game {
 		
 		do {
 			System.out.println(currentPlayer.name + "'s turn.");
-			System.out.println("Enter number of pins (0-10): ");
+			System.out.print("Enter number of pins (0-10): ");
 			numPins = scanner.nextInt();
 		} while(numPins < 0 || numPins > limit);
 		
@@ -32,7 +32,15 @@ public class Game {
 		int firstRoll, secondRoll, thirdRoll; 
 		
 		for (int i = 0; i < 10; i++) {
+			System.out.println();
+			System.out.println("===========================================================");
+			System.out.println("Frame " + (i+1));
+			System.out.println();
+			
 			for (int j = 0; j < players.size(); j++) {
+				
+				System.out.println();
+				System.out.println("-----------------------------------------------------------");
 				
 				Player currentPlayer = players.get(j);
 				
@@ -59,7 +67,13 @@ public class Game {
 						currentPlayer.roll(firstRoll, secondRoll, 0, i);
 					}
 				}
+				
+				System.out.println("-----------------------------------------------------------");
+				System.out.println();
 			}
+			
+			System.out.println("===========================================================");
+			System.out.println();
 		}
 		scanner.close();
 	}

@@ -20,7 +20,7 @@ public class Main {
 		System.out.println();
 		
 		do {
-			System.out.println("Enter number of players (Max 5): ");
+			System.out.print("Enter number of players (Max 5): ");
 			numPlayers = scanner.nextInt();
 		} while (numPlayers > 5 && !(numPlayers == (int)numPlayers));
 		
@@ -32,7 +32,6 @@ public class Main {
 			players.add(new Player(name));
 		}
 		
-//		scanner.close();
 		System.out.println("");
 		
 		for (Player p : players) {
